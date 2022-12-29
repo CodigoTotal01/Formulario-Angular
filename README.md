@@ -11,6 +11,6 @@ In this project I demonstrate how to use the static and reactive forms that can 
 ![image](https://user-images.githubusercontent.com/85316618/209902360-8a441be4-9593-4abf-871f-fa9d78f23c98.png)
 ![image](https://user-images.githubusercontent.com/85316618/209902366-04d3e0fa-29b8-43bd-8f73-493c3ffb70f2.png)
 
-#Auth
+# Auth
 ![image](https://user-images.githubusercontent.com/85316618/209902376-9fff3f3e-1983-489d-a116-f0a35d11fd5e.png)
 
