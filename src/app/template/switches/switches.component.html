@@ -1,0 +1,93 @@
+<h2>Template: Switches</h2>
+
+<hr>
+
+
+<form #miFormulario="ngForm"> <!--Angular ya sabe de la exitencia de nuetro formulario -->
+    <!-- radios -> los name deben ser si o si iguales, el id si puede cambiar   -->
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label"> Genero</label>
+            <div class="col-sm-9">
+                <div class="form-check">
+                    <input  required
+                    class="form-check-input" 
+                    type="radio" 
+                    name="radioGenero" 
+                    value="M"
+                    [(ngModel)]="persona.genero"
+                    id="radioMasculino">
+                    <label class="form-check-label" for="flexRadioDefault1">
+                        Masculino
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input  required
+                    class="form-check-input" 
+                    type="radio" 
+                    name="radioGenero" 
+                    value="F"
+                    [(ngModel)]="persona.genero"
+                    id="radioFemenino">
+                    <label class="form-check-label" for="flexRadioDefault2">
+                        Femenino
+                    </label>
+                </div>
+            </div>
+       
+    </div>
+
+
+    <!--switch son chek box xd  -->
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label"> Notificaciones: </label>
+            <div class="col-sm-9">
+                <div class="form-check form-switch">
+                    <input name="notificaciones" [(ngModel)]="persona.notificaciones" 
+                     class="form-check-input"
+                     type="checkbox" 
+                    id="flexSwitchCheckDefault">
+                    <label class="form-check-label" for="flexSwitchCheckDefault">Quiero recivir notificaciones</label>
+                  </div>
+             
+            </div>
+    </div>
+
+
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label"></label>
+            <div class="col-sm-9">
+                <div class="form-check">
+                    <input required class="form-check-input" type="checkbox"  name="terminos" [(ngModel)]="terminosYCondiciones"  id="defaultCheck1">
+                    <label class="form-check-label" for="defaultCheck1">
+                      He leido los terminos y condiciones
+                    </label>
+                  </div>
+             
+            </div>
+    </div>
+
+
+<!-- burron-->
+<div class="row">
+    <div class="col">
+        <button [disabled]="miFormulario.invalid" type="button" class="btn btn-primary float-end">
+                Agregar
+        </button>
+    </div>
+
+</div>
+
+
+</form>
+
+
+<span>valor del formulario</span>
+<pre>{{miFormulario.value | json}}</pre>
+<br>
+
+<span>valid</span>
+<pre>{{miFormulario.valid}}</pre>
+
+<!-- retorna true al inicio cuando se requiee  -->
+<span>Terminos</span>
+

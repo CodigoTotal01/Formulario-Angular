@@ -1,0 +1,77 @@
+<h2>Template: Basicos</h2>
+
+<hr>
+
+<!-- error: null :D , error co -->
+<div class="row">
+    <div class="col">
+        <!-- referencia local  -->
+        <form (ngSubmit)="guardar()" #miFormulario="ngForm" autocomplete="off">
+            <!-- campo de producto  -->
+            <div class="mb-3 row">
+                <label for="" class="col-sm-3 col-form-label">Producto</label>
+                <div class="col-sm-9">
+                    <!-- angModel -> name gregar el ng model para decirle a angular que los input nos interesa el valor y son parte del formulario -->
+                    <input required [ngModel]="initForm.producto" name="producto" type="text" class="form-control" placeholder="Nombre del Producto" minlength="3" >
+                    <!-- producto no existe asi que da error al no encontrarlo hasar aque se forme  -->
+                    <span class="form-text text-danger" 
+                    *ngIf="nombreValido()"
+                    >Debe ser 3 min </span>
+                </div>
+            </div>
+            <!-- .campo de producto  -->
+
+            <!-- precio -->
+            <div class="mb-3 row">
+                <label for="" class="col-sm-3  col-form-label">Precio</label>
+                <div class="col-sm-9">
+                    <input required  [ngModel]="initForm.precio"  name="precio" type="number" class="form-control" placeholder="Precio del Producto">
+                </div>
+
+                <span class="form-text text-danger" 
+                    *ngIf="precioValido()"
+                    >El Precio debe ser 0 o mayor  </span>
+            </div>
+            <!-- .precio -->
+
+              <!-- existencias -->
+              <div class="mb-3 row">
+                <label for="" class="col-sm-3 col-form-label">Existencias del producto</label>
+                <div class="col-sm-9">
+                    <input required customMin [minimo]="0" required [ngModel]="initForm.existencias"  name="existencias" type="number" class="form-control" placeholder="Existencias del Producto">
+                </div>
+            </div>
+            <!-- .existencias -->
+
+            <div class="row">
+                <div class="col">
+
+                    <button type="submit" 
+
+                    [disabled]="miFormulario.invalid"
+                    class="btn left btn-primary">Guardar</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col">
+        
+        <!-- detecta cambios automaticamente  -->
+        <span>Valid</span>
+        <pre>{{miFormulario.valid}}</pre>
+        <span>Pristine: nose modifico ninguno de los datos desde que se mostro al usuario</span>
+        <pre>{{miFormulario.pristine}}</pre>
+
+        <span>Touched: si a tocado el formulario (no al toque )</span>
+        <pre>{{miFormulario.touched}}</pre>
+
+        <span>Value</span>
+        <pre>{{miFormulario.value |json}}</pre>
+
+   
+   
+    </div>
+</div>

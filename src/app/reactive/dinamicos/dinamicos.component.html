@@ -1,0 +1,67 @@
+<h2>Reactivos  <small>Dinamicos</small></h2>
+<form (ngSubmit)="guardar()" [formGroup]="miFormulario"autocomplete="off">
+
+    <!-- nombre -->
+    <div class="mb-3 row ">
+        <label class="col-sm-3 col-form-label">Nombre</label>
+        <div class="col-sm-9">
+            <input formControlName="nombre" type="text" class="form-control" placeholder="Nombre de la persona">
+            <span *ngIf="campoEsValido('nombre')" class="form-text text-danger" >Este campo es obligatorio
+            </span>
+        </div>
+    </div>
+
+
+    <!-- nombre -->
+    <div class="mb-3 row ">
+        <label class="col-sm-3 col-form-label">Agregar</label>
+        <div class="col-sm-9">
+            <div class="input-group">
+                <!-- recuerda que este no forma parte del formulario  -->
+                <!-- ! no haces referencia directa al formuylaroiu  -->
+                <input [formControl]="nuevoFavorito" class="form-control" (keyup.enter)="agregarFavorito()" placeholder="Nombre de la persona" >
+               <!-- no necesoita nada porque uya pasamos la prpiedad en el ts  -->
+                <button type="button" (click)="agregarFavorito()" class="btn btn-outline-primary" >
+                    Agregar
+                </button>
+            </div>
+
+        </div>
+    </div>
+
+
+    <!-- formularios reactivos no ncoonocen eel ng model  -->
+        <!-- lista de juegos favorito -->
+        <div class="mb-3 row ">
+            <label class="col-sm-3 col-form-label">Favoritos</label>
+            <!-- contiene las iteraciones  -->
+            <div class="col-sm-9" formArrayName="favoritos">
+                <div class="input-group  mb-1" *ngFor="let favorito of favoritosArr.controls; let i = index">
+                    <!-- para que tome el valor como tal -> cno como string  -->
+                    <input  [formControlName]="i" type="text"  
+                       class="form-control">
+
+                    <button type="button"  (click)="eliminar(i)" class="btn btn-outline-danger">
+                        Eliminar
+                    </button>
+                </div>
+
+                
+            </div>
+        </div>
+
+
+    <div class="row">
+        <div class="col">
+
+            <button type="button" (click)="guardar() "
+                class="btn float-end btn-primary">Guardar</button>
+        </div>
+    </div>
+
+
+</form>
+
+
+<span>
+</span>
