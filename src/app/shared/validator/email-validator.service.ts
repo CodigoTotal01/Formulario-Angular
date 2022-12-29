@@ -17,12 +17,7 @@ export class EmailValidatorService implements AsyncValidator{
     console.log(email);
     //evaluar si ya existe el correo 
     return this.http.get<any[]>(`http://localhost:3000/usuarios?q=${email}`)
-    .pipe( //pero cuando lo reciba que espere 3 segundos 
-    delay(3000),
-        map(resp=>{
-          return (resp.length == 0)  ? null: {emailTomado: true};
-        })
-    )
+    
   }
 
 }
